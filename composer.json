@@ -1,0 +1,14 @@
+{
+    "name": "leconfe/prestige",
+    "autoload": {
+        "psr-4": {
+            "Prestige\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Leconfe"
+        }
+    ],
+    "require": {}
+}
