@@ -1,4 +1,4 @@
-<div class="hero h-full">
+<div {{ $attributes->merge(['class' => 'hero h-full flex-grow']) }}>
     <div class="hero-content text-center">
         <div class="py-8 px-4 mx-auto max-w-screen-lg text-center lg:py-16 lg:px-12 z-10 text-[var(--text-hero)]">
             <div class="block sm:flex sm:flex-wrap items-center justify-center gap-8">

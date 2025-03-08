@@ -26,7 +26,7 @@
             <div class="navbar-start gap-2 hidden lg:flex">
                 <x-website::navigation-menu :items="$primaryNavigationItems" />
             </div>
-            <div class="navbar-center">
+            <div class="shrink sm:navbar-center">
                 <x-website::logo :headerLogo="$headerLogo"/>
             </div>
             <div class="navbar-end">
