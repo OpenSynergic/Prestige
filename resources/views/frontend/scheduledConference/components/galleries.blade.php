@@ -8,7 +8,7 @@
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
         @foreach ($currentScheduledConference->getMedia($data['image_collection_id']) as $gallery)
             <div>
-                <img class="h-full max-w-full rounded-lg object-cover bg-center" src="{{ $gallery->getAvailableUrl(['thumb', 'thumb-xl']) }}">
+                <img class="h-full max-w-full aspect-square object-cover bg-center border-4 border-black" src="{{ $gallery->getAvailableUrl(['thumb', 'thumb-xl']) }}">
             </div>
         @endforeach
     </div>

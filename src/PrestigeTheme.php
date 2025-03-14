@@ -20,8 +20,8 @@ use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
+use Illuminate\Foundation\Vite;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\Str;
 use luizbills\CSS_Generator\Generator as CSSGenerator;
 use matthieumastadenis\couleur\ColorFactory;
@@ -237,7 +237,7 @@ class PrestigeTheme extends Theme
     public function onActivate(): void
     {
         Hook::add('Frontend::Views::Head', function ($hookName, &$output) {
-            $output .= Vite::useHotFile(base_path('plugins') . DIRECTORY_SEPARATOR . $this->getInfo('folder') . DIRECTORY_SEPARATOR . 'vite.hot')
+            $output .= (new Vite())->useHotFile(base_path('plugins') . DIRECTORY_SEPARATOR . $this->getInfo('folder') . DIRECTORY_SEPARATOR . 'vite.hot')
                 ->useBuildDirectory('plugin' . DIRECTORY_SEPARATOR . Str::lower($this->getInfo('folder')) . DIRECTORY_SEPARATOR . 'build')
                 ->withEntryPoints(['resources/css/app.css', 'resources/js/app.js'])
                 ->toHtml();
