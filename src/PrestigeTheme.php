@@ -11,12 +11,15 @@ use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\Str;
@@ -158,6 +161,30 @@ class PrestigeTheme extends Theme
                                                 ->label('Title'),
                                         ])
                                         ->maxItems(1),
+                                    Builder\Block::make('galleries')
+                                        ->label('Gallery')
+                                        ->icon('heroicon-o-photo')
+                                        ->schema([
+                                            Hidden::make('image_collection_id'),
+                                            TextInput::make('title')
+                                                ->label('Title')
+                                                ->required(),
+                                            SpatieMediaLibraryFileUpload::make('galleries')
+                                                ->collection(function (FileUpload $component, Get $get) {
+                                                    return $get('image_collection_id') ?? $component->getContainer()->getStatePath() . '.' . $component->getStatePath(false);
+                                                })
+                                                ->afterStateHydrated(null)
+                                                ->mutateDehydratedStateUsing(null)
+                                                ->image()
+                                                ->multiple()
+                                                ->conversion('thumb-xl')
+                                                ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+                                                ->afterStateUpdated(function (FileUpload $component, Set $set) {
+                                                    $set('image_collection_id', $component->getContainer()->getStatePath() . '.' . $component->getStatePath(false));
+                                                })
+                                                ->reorderable()
+                                                ->live(),
+                                        ]),
                                 ])
 
 
