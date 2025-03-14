@@ -42,6 +42,9 @@
             @case('three-column')
                 <x-scheduledConference::custom-3-column :data="$layout['data']"/>
             @break
+            @case('galleries')
+                <x-scheduledConference::galleries :data="$layout['data']"/>
+            @break
         @endswitch
     @endforeach
 

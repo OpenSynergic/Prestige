@@ -22,12 +22,12 @@
             display: none !important;
         }
     </style>
-
-    @vite(['resources/frontend/js/frontend.js'])
-
-    @livewireStyles
+    
     
     @hook('Frontend::Views::Head')
+
+    @vite(['resources/frontend/js/frontend.js'])
+    @livewireStyles
 
     @if(isset($styleSheet) && !empty($styleSheet))
         <link rel="stylesheet" type="text/css" href="{{ $styleSheet }}" />

@@ -11,14 +11,17 @@ use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\Tabs;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Get;
+use Filament\Forms\Set;
+use Illuminate\Foundation\Vite;
 use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\Str;
 use luizbills\CSS_Generator\Generator as CSSGenerator;
 use matthieumastadenis\couleur\ColorFactory;
@@ -158,6 +161,30 @@ class PrestigeTheme extends Theme
                                                 ->label('Title'),
                                         ])
                                         ->maxItems(1),
+                                    Builder\Block::make('galleries')
+                                        ->label('Gallery')
+                                        ->icon('heroicon-o-photo')
+                                        ->schema([
+                                            Hidden::make('image_collection_id'),
+                                            TextInput::make('title')
+                                                ->label('Title')
+                                                ->required(),
+                                            SpatieMediaLibraryFileUpload::make('galleries')
+                                                ->collection(function (FileUpload $component, Get $get) {
+                                                    return $get('image_collection_id') ?? $component->getContainer()->getStatePath() . '.' . $component->getStatePath(false);
+                                                })
+                                                ->afterStateHydrated(null)
+                                                ->mutateDehydratedStateUsing(null)
+                                                ->image()
+                                                ->multiple()
+                                                ->conversion('thumb-xl')
+                                                ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+                                                ->afterStateUpdated(function (FileUpload $component, Set $set) {
+                                                    $set('image_collection_id', $component->getContainer()->getStatePath() . '.' . $component->getStatePath(false));
+                                                })
+                                                ->reorderable()
+                                                ->live(),
+                                        ]),
                                 ])
 
 
@@ -210,7 +237,7 @@ class PrestigeTheme extends Theme
     public function onActivate(): void
     {
         Hook::add('Frontend::Views::Head', function ($hookName, &$output) {
-            $output .= Vite::useHotFile(base_path('plugins') . DIRECTORY_SEPARATOR . $this->getInfo('folder') . DIRECTORY_SEPARATOR . 'vite.hot')
+            $output .= (new Vite())->useHotFile(base_path('plugins') . DIRECTORY_SEPARATOR . $this->getInfo('folder') . DIRECTORY_SEPARATOR . 'vite.hot')
                 ->useBuildDirectory('plugin' . DIRECTORY_SEPARATOR . Str::lower($this->getInfo('folder')) . DIRECTORY_SEPARATOR . 'build')
                 ->withEntryPoints(['resources/css/app.css', 'resources/js/app.js'])
                 ->toHtml();
