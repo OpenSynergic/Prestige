@@ -1,9 +1,8 @@
 <div class="prestige-footer-content bg-primary text-primary-content flex items-center bg-no-repeat bg-cover w-full">
 	<div class="w-full mx-auto p-4 sm:px-16 sm:py-8 space-y-6">
 		<div class="flex flex-col sm:flex-row flex-wrap gap-x-8 gap-y-6">
-			<div class="flex- flex flex-col items-start gap-y-2 -mt-5">
-				<img src="#" alt="Conference Logo" width="325"
-					height="53" />
+			<div class="flex- flex flex-col items-start gap-y-2">
+				<img src="#" alt="Conference Logo" />
 				<hr class="w-full">
 				<div class="sm:max-w-lg">Sit enim ut magna incididunt est enim dolor irure. Officia dolor velit dolore. Incididunt magna dolor est. Ullamco magna do eiusmod. Voluptate cillum eu laboris voluptate occaecat tempor id do cillum minim eiusmod duis anim id sit.</div>
 				<a href="#" class="text-white px-5 py-4 border border-white rounded">
