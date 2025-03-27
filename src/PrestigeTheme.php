@@ -161,6 +161,14 @@ class PrestigeTheme extends Theme
                                                 ->label('Title'),
                                         ])
                                         ->maxItems(1),
+                                    Builder\Block::make('timelines')
+                                        ->label('Timelines')
+                                        ->icon('heroicon-o-calendar-days')
+                                        ->schema([
+                                            TextInput::make('title')
+                                                ->label('Title'),
+                                        ])
+                                        ->maxItems(1),
                                     Builder\Block::make('galleries')
                                         ->label('Gallery')
                                         ->icon('heroicon-o-photo')
