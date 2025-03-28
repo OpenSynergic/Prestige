@@ -45,6 +45,16 @@
             @case('galleries')
                 <x-scheduledConference::galleries :data="$layout['data']"/>
             @break
+            @case('timelines')
+                @php
+                    $timelines = App\Models\Timeline::query()
+                                    ->where('hide', false)
+                                    ->orderBy('date')
+                                    ->get();
+                @endphp 
+
+                <x-scheduledConference::timelines :data="$layout['data']" :timelines="$timelines"/>
+            @break
         @endswitch
     @endforeach
 
