@@ -145,6 +145,10 @@ class PrestigeTheme extends Theme
                                         ->label('Speakers')
                                         ->icon('heroicon-o-users')
                                         ->maxItems(1),
+                                    Builder\Block::make('committees')
+                                        ->label('Committees')
+                                        ->icon('heroicon-o-users')
+                                        ->maxItems(1),
                                     Builder\Block::make('sponsors')
                                         ->label('Sponsors')
                                         ->icon('heroicon-o-building-office-2')
