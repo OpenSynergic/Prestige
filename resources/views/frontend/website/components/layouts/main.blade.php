@@ -4,7 +4,7 @@
 ])
 
 
-<main>
+<main {{ $attributes->merge(['class' => 'space-y-8']) }}>
     {{-- Load Main Layout --}}
     @if($header)
         <x-website::layouts.header />

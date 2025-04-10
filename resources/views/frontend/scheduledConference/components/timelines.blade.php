@@ -2,10 +2,11 @@
     'data' => [],
 	'timelines'
 ])
-<section class="timelines w-auto sm:max-w-screen-xl mx-4 lg:mx-auto">
+<section class="timelines w-full sm:max-w-screen-xl mx-4 lg:mx-auto p-4 sm:py-12 sm:px-10">
     <div class="mx-auto text-center gap-2 mb-6">
         <h2 class="text-3xl sm:text-6xl font-bold text-primary">
-            {{ Arr::get($data, 'title') ? $data['title'] : 'Timelines' }}</h2>
+            {{ Arr::get($data, 'title') ? $data['title'] : 'Timelines' }}
+		</h2>
     </div>
 
     <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
@@ -25,7 +26,12 @@
 					'timeline-start mb-10 md:text-end' => $loop->odd,
 					'timeline-end md:mb-10' => $loop->even,
 				])>
-					<time class="font-mono italic"> {{ $timeline->date->format('d M Y') }} </time>
+					<time class="font-mono italic">
+						{{ $timeline->date->format('d M Y') }} 
+						@if($timeline->date_end)
+							- {{ $timeline->date_end->format('d M Y') }}
+						@endif
+					</time>
 					<div class="text-lg font-black">{{ $timeline->name }}</div>
 					<span>
 						{{ $timeline->description }}
