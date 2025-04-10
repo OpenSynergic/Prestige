@@ -4,7 +4,7 @@
 ])
 <section class="timelines w-full sm:max-w-screen-xl mx-4 lg:mx-auto p-4 sm:py-12 sm:px-10">
     <div class="mx-auto text-center gap-2 mb-6">
-        <h2 class="text-3xl sm:text-6xl font-bold text-primary">
+        <h2 class="timelines-title text-3xl sm:text-6xl font-bold text-primary">
             {{ Arr::get($data, 'title') ? $data['title'] : 'Timelines' }}
 		</h2>
     </div>
@@ -26,14 +26,14 @@
 					'timeline-start mb-10 md:text-end' => $loop->odd,
 					'timeline-end md:mb-10' => $loop->even,
 				])>
-					<time class="font-mono italic">
+					<time class="timeline-date font-mono italic">
 						{{ $timeline->date->format('d M Y') }} 
 						@if($timeline->date_end)
 							- {{ $timeline->date_end->format('d M Y') }}
 						@endif
 					</time>
-					<div class="text-lg font-black">{{ $timeline->name }}</div>
-					<span>
+					<div class="timeline-name text-lg font-black">{{ $timeline->name }}</div>
+					<span class="timeline-description">
 						{{ $timeline->description }}
 					</span>
 				</div>
