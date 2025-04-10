@@ -23,6 +23,11 @@
                     <x-scheduledConference::speakers-toc :data="$layout['data']"/>
                 @endif
             @break
+            @case('committees')
+                @if ($currentScheduledConference?->committees->isNotEmpty())
+                    <x-scheduledConference::committees-toc :data="$layout['data']"/>
+                @endif
+            @break
             @case('sponsors')
                 @if ($sponsorLevels->isNotEmpty() || $sponsorsWithoutLevel->isNotEmpty())
                     <x-scheduledConference::sponsors-toc :sponsorLevels="$sponsorLevels" :sponsorsWithoutLevel="$sponsorsWithoutLevel" :data="$layout['data']" />
