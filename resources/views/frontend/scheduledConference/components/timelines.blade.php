@@ -32,8 +32,8 @@
 							- {{ $timeline->date_end->format('d M Y') }}
 						@endif
 					</time>
-					<div class="timeline-name text-lg font-black">{{ $timeline->name }}</div>
-					<span class="timeline-description">
+					<div class="timeline-name text-2xl font-black">{{ $timeline->name }}</div>
+					<span class="timeline-description text-lg">
 						{{ $timeline->description }}
 					</span>
 				</div>
