@@ -4,7 +4,7 @@
 
 <div @class([
     'custom-layout',
-	'py-10 sm:py-20 w-auto sm:max-w-screen-xl mx-4 lg:mx-auto' => !$data['full_width'],
+	'py-10 sm:py-20 w-full sm:max-w-screen-xl mx-4 lg:mx-auto' => !$data['full_width'],
 ])>
     @if ($data['show_title'])
         <h2 class="custom-layout-title text-primary text-3xl sm:text-6xl font-bold mb-6 sm:mb-12">
