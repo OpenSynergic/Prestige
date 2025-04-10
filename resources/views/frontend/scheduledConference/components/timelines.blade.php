@@ -2,7 +2,7 @@
     'data' => [],
 	'timelines'
 ])
-<section class="timelines w-auto sm:max-w-screen-xl mx-4 lg:mx-auto">
+<section class="timelines w-full sm:max-w-screen-xl mx-4 lg:mx-auto p-4 sm:py-12 sm:px-10">
     <div class="mx-auto text-center gap-2 mb-6">
         <h2 class="text-3xl sm:text-6xl font-bold text-primary">
             {{ Arr::get($data, 'title') ? $data['title'] : 'Timelines' }}
