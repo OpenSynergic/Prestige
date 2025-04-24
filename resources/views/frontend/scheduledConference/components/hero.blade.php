@@ -26,7 +26,7 @@
             </h1>
             @if (!empty($theme->getSetting('hero_buttons') ?? []))
                 <div
-                    class="hero-buttons flex flex-col flex-wrap my-8 lg:my-16 space-y-4 sm:flex-row items-center sm:justify-center sm:space-y-0 gap-4">
+                    class="hero-buttons flex flex-col flex-wrap my-8 lg:my-16 sm:flex-row items-center sm:justify-center gap-4">
                     @foreach ($theme->getSetting('hero_buttons') ?? [] as $button)
                         <a 
                         @style([
