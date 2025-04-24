@@ -1,7 +1,7 @@
 <div {{ $attributes->merge(['class' => 'hero h-full flex-grow']) }}>
     <div class="hero-content text-center">
         <div class="py-8 px-4 mx-auto max-w-screen-lg text-center lg:py-16 lg:px-12 z-10 text-[var(--text-hero)]">
-            <div class="block sm:flex sm:flex-wrap items-center justify-center gap-8">
+            <div class="block sm:flex sm:flex-wrap items-center justify-center gap-4">
                 @if ($currentScheduledConference->date_start || $currentScheduledConference->date_end)
                     <p class="hero-date text-3xl md:text-5xl italianno-regular">
                         {{ $theme->formatDateRange($currentScheduledConference->date_start, $currentScheduledConference->date_end) }}
@@ -26,7 +26,7 @@
             </h1>
             @if (!empty($theme->getSetting('hero_buttons') ?? []))
                 <div
-                    class="flex flex-col flex-wrap my-8 lg:my-16 space-y-4 sm:flex-row items-center sm:justify-center sm:space-y-0 sm:space-x-4">
+                    class="hero-buttons flex flex-col flex-wrap my-8 lg:my-16 sm:flex-row items-center sm:justify-center gap-4">
                     @foreach ($theme->getSetting('hero_buttons') ?? [] as $button)
                         <a 
                         @style([
