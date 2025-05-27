@@ -15,7 +15,6 @@
         <x-scheduledConference::hero/>
     </div>
 
-
     @foreach ($theme->getLayouts() as $layout)
         @switch($layout['type'])
             @case('speakers')

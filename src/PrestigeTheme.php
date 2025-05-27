@@ -72,6 +72,9 @@ class PrestigeTheme extends Theme
                                         ->regex('/^#?(([a-f0-9]{3}){1,2})$/i')
                                         ->label('Primary Color Content'),
                                 ]),
+                            Checkbox::make('countdown_timer')
+                                ->label('Show Countdown Timer')
+                                ->helperText('Enable this to show a countdown timer on the homepage'),
                             Repeater::make('hero_buttons')
                                 ->schema([
                                     TextInput::make('text')->required(),
@@ -214,6 +217,7 @@ class PrestigeTheme extends Theme
             'primary_color_content' => $this->getSetting('primary_color_content'),
             'hero_buttons' => $this->getSetting('hero_buttons') ?? [],
             'layouts' => $this->getLayouts(),
+            'countdown_timer' => $this->getSetting('countdown_timer'),
         ];
     }
 
