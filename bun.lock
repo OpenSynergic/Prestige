@@ -3,6 +3,7 @@
   "workspaces": {
     "": {
       "dependencies": {
+        "@pqina/flip": "^1.8.4",
         "country-flag-emoji-polyfill": "^0.1.8",
       },
       "devDependencies": {
@@ -98,6 +99,8 @@
     "@pkgjs/parseargs": ["@pkgjs/parseargs@0.11.0", "", {}, "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="],
 
     "@popperjs/core": ["@popperjs/core@2.11.8", "", {}, "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A=="],
+
+    "@pqina/flip": ["@pqina/flip@1.8.4", "", {}, "sha512-vOOGo23t0egDHOhnNeDwHdSQVT1p8l+MetwpZPd+5xEYjvZR6FNUaWYqLki3XFfMijro9YpYuljInCaLhO62dQ=="],
 
     "@rollup/rollup-android-arm-eabi": ["@rollup/rollup-android-arm-eabi@4.34.8", "", { "os": "android", "cpu": "arm" }, "sha512-q217OSE8DTp8AFHuNHXo0Y86e1wtlfVrXiAlwkIvGRQv9zbc6mE3sjIVfwI8sYUyNxwOg0j/Vm1RKM04JcWLJw=="],
 

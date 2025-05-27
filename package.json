@@ -20,6 +20,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@pqina/flip": "^1.8.4",
 		"country-flag-emoji-polyfill": "^0.1.8"
 	}
 }

@@ -43,6 +43,9 @@
                     @endforeach
                 </div>
             @endif
+            @if($theme->getSetting('countdown_timer'))
+                <x-scheduledConference::countdown-timer :date="$currentScheduledConference->date_start"/>
+            @endif
         </div>
     </div>
 </div>
