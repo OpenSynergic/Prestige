@@ -36,9 +36,9 @@
    color: var(--bc, rgb(0, 0, 0)) !important; 
 } */
 
-.tick-flip-panel {   
-   background-color: oklch(var(--bc)); 
-   color: oklch(var(--b1)) 
+.tick-flip-panel {
+  background-color: var(--text-hero, oklch(var(--bc))); 
+  color: oklch(var(--b1)) 
 }
 
 /* .tick-flip {
