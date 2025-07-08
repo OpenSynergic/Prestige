@@ -213,6 +213,7 @@ class PrestigeTheme extends Theme
         return [
             'base_color' => $this->getSetting('base_color'),
             'base_color_content' => $this->getSetting('base_color_content'),
+            'banner_text_color' => $this->getSetting('banner_text_color'),
             'primary_color' => $this->getSetting('primary_color'),
             'primary_color_content' => $this->getSetting('primary_color_content'),
             'hero_buttons' => $this->getSetting('hero_buttons') ?? [],
